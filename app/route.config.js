@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const prefix = '/api';
 
+// Configure HTTP request headers
 module.exports = (express, router, staticContentPath) => {
   router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -20,8 +21,12 @@ module.exports = (express, router, staticContentPath) => {
   // for parsing application/x-www-form-urlencoded
   router.use(bodyParser.urlencoded({ extended: true }));
 
+  // Host static files
   router.use('/app', express.static(staticContentPath));
 
-  // Rout Index
+  // Route Index
+  router.delete(`${prefix}/session`, require('./controllers/session/session.delete'));
+  router.get(`${prefix}/session`, require('./controllers/session/session.get'));
+
   router.get(`${prefix}/user`, require('./controllers/user/user.get'));
 };

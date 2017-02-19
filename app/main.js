@@ -1,8 +1,9 @@
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const session = require('express-session');
 
-var routsDef = require('./rout.config');
+var routesDef = require('./route.config');
 
 var config = require('../config/production.config').api,
   router = express(),
@@ -17,10 +18,17 @@ try {
     process.stdout.write('Production configuration using local values.\n');
   }
 } catch (ex) {}
+// Make the configuration object global
 global.config = config;
 
-routsDef(express, router, staticContentPath);
+// Configure for session
+router.use(session(global.config.session));
 
+// Mount all routs
+routesDef(express, router, staticContentPath);
+
+// Start the server
 server.listen(config.port, '0.0.0.0');
 
+// Make the server available to testing environments
 module.exports = server;

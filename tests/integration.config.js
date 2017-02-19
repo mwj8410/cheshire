@@ -11,4 +11,5 @@ after(() => {
   server.close();
 });
 
+require('./integration/00_main.spec');
 require('./integration/user.spec');

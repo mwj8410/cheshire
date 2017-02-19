@@ -5,7 +5,16 @@ module.exports = {
 
     sql_uri: '',
     sql_user: '',
-    sql_password: ''
+    sql_password: '',
+
+    session: {
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        secure: true
+      }
+    }
   },
   ui: {},
   view: {
