@@ -1,23 +1,32 @@
 module.exports = {
   api: {
+    // Base values
     port: 80,
-    mongo_uri: '',
 
-    sql_uri: '',
-    sql_user: '',
-    sql_password: '',
+    // Subsystem varaiables
+    mongo: {
+      uri: ''
+    },
+
+    redis: {
+      client: '',
+      host: '',
+      port: '',
+      socket: '',
+      url: ''
+    },
+
+    sql: {
+      uri: '',
+      user: '',
+      password: ''
+    },
 
     session: {
       secret: 'keyboard cat',
-      resave: false,
-      saveUninitialized: true,
-      cookie: {
-        secure: true
-      }
+      store: 'redis'
     }
   },
   ui: {},
-  view: {
-
-  }
+  view: {}
 };

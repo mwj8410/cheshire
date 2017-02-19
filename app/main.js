@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const session = require('express-session');
+const redisStore = require('connect-redis')(session);
 
 var routesDef = require('./route.config');
 
@@ -22,7 +23,25 @@ try {
 global.config = config;
 
 // Configure for session
-router.use(session(global.config.session));
+var sessionConfig = {
+  secret: global.config.session.secret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: true
+  }
+};
+if (global.config.session.store === 'redis') {
+  // Config documentation at: https://www.npmjs.com/package/connect-redis
+  sessionConfig.store = new new RedisStore({
+    client: global.config.redis.client,
+    host: global.config.redis.host,
+    port: global.config.redis.port,
+    socket: global.config.redis.socket,
+    url: global.config.redis.url
+  });
+}
+router.use(session(sessionConfig));
 
 // Mount all routs
 routesDef(express, router, staticContentPath);

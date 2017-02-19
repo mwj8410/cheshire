@@ -4,13 +4,20 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-describe('rout:user:get', () => {
-  it('ran a test', done => {
-    chai.request(global.server)
-    .get('/api/sesion')
-    .end((err, res) => {
-      expect(res.status).toBe(200);
-      done();
+describe('controller: session', () => {
+
+  describe('route: GET /', () => {
+
+    it('returns a session object', done => {
+      chai.request(global.server)
+      .get('/api/session')
+      .end((err, res) => {
+        expect(res.status).toBe(200);
+        expect(typeof res.body).toBe('object');
+        done();
+      });
     });
+
   });
+
 });

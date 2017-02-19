@@ -5,6 +5,7 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
 describe('main: server and support systems', () => {
+
   it('starts and responds to requests', done => {
     chai.request(global.server)
     .get('/api/user') // ned a test rout to check
@@ -13,4 +14,5 @@ describe('main: server and support systems', () => {
       done();
     });
   });
+
 });

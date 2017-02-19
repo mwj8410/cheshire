@@ -4,13 +4,19 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-describe('rout:user:get', () => {
-  it('ran a test', done => {
-    chai.request(global.server)
-    .get('/api/user')
-    .end((err, res) => {
-      expect(res.status).toBe(200);
-      done();
+describe('controller: user', () => {
+
+  describe('route: GET /', () => {
+
+    it('ran a test', done => {
+      chai.request(global.server)
+      .get('/api/user')
+      .end((err, res) => {
+        expect(res.status).toBe(200);
+        done();
+      });
     });
+
   });
+
 });

@@ -12,4 +12,5 @@ after(() => {
 });
 
 require('./integration/00_main.spec');
+require('./integration/session.spec');
 require('./integration/user.spec');

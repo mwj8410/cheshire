@@ -1,3 +1,9 @@
 module.exports = (req, res) => {
-  res.sendStatus(200);
+  if (!req.session) {
+    req.session.regenerate(function(err) {
+      return res.send(req.session);
+    });
+  } else {
+    return res.send(req.session);
+  }
 };
