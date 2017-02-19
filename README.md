@@ -1,9 +1,10 @@
 # Cheshire #
+[![CircleCI](https://circleci.com/gh/mwj8410/cheshire.svg?style=svg)](https://circleci.com/gh/mwj8410/cheshire)
 
 ## Project Structure ##
 This project is divided into three parts.
-# *api*: the server portion of the application.
-# *ui*: The interface for the editor and configuration application.
-# *views*: The engine that allows the user to play through the experience indicated.
+- *api*: the server portion of the application.
+- *ui*: The interface for the editor and configuration application.
+- *views*: The engine that allows the user to play through the experience indicated.
 
 ## Development ##
