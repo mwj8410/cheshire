@@ -1,4 +1,4 @@
-# Cheshire # [![CircleCI](https://circleci.com/gh/mwj8410/cheshire.svg?style=svg)](https://circleci.com/gh/mwj8410/cheshire)
+# Cheshire [![CircleCI](https://circleci.com/gh/mwj8410/cheshire.svg?style=svg)](https://circleci.com/gh/mwj8410/cheshire) #
 
 This is a prototype dialogue editor and player intended to create, edit, and navigate complex storytelling and question/answer forms.
 
