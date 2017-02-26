@@ -29,4 +29,8 @@ module.exports = (express, router, staticContentPath) => {
   router.get(`${prefix}/session`, require('./controllers/session/session.get'));
 
   router.get(`${prefix}/user`, require('./controllers/user/user.get'));
+  // router.put
+  // router.delete
+  // router.post
+  // router.patch
 };

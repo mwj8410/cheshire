@@ -8,12 +8,11 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    // main: './ui_src/main.jsx',
-    client: './ui_src/core/client.ejs'
+    // client: './ui/editor.ejs'
   },
-  externals: {
-    react: "React"
-  },
+  // externals: {
+  //   react: "React"
+  // },
   output: {
     filename: 'js/[name].js',
     path: './hosted/'
@@ -45,18 +44,11 @@ module.exports = {
 
     // Build HTML
     new HtmlWebpackPlugin(Object.assign(
-      { filename: './index.html', template: './ui_src/templates/index.ejs' }
+      { filename: './editor.html', template: './ui/editor.ejs' }
     )),
 
     // Copy static assets over
     new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets/' },
-      { from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'lib/' },
-      { from: 'node_modules/bootstrap/dist/js/bootstrap.min.js', to: 'lib/' },
-      { from: 'node_modules/font-awesome/css/font-awesome.min.css', to: 'lib/' },
-      { from: 'node_modules/jquery/dist/jquery.min.js', to: 'lib/' },
-      { from: 'node_modules/react/dist/react.min.js', to: 'lib/' },
-      { from: 'node_modules/react-dom/dist/react-dom.min.js', to: 'lib/' }
     ])
   ],
   sassLoader: {

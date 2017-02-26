@@ -1,7 +1,7 @@
 module.exports = {
   api: {
     // Base values
-    port: 80,
+    port: 3000,
 
     // Subsystem varaiables
     mongo: {
@@ -24,7 +24,7 @@ module.exports = {
 
     session: {
       secret: 'keyboard cat',
-      store: 'redis'
+      store: process.env.CIRCLECI && 'memory' || 'redis'
     }
   },
   ui: {},
