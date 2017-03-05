@@ -21,7 +21,7 @@ docker pull mongo
 docker pull mysql
 docker pull redis
 docker run mongo
-docker run mysql
+docker run -p3306:3306 -e MYSQL_ROOT_PASSWORD=password mysql
 docker run redis
 ```
 
