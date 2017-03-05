@@ -2,7 +2,7 @@
  * Wicket
  * a small door or gate, especially one beside or in a larger one.
  *
- * A browser based RESTful communication service.
+ * A browser based REST communication service.
  * Once complete, this code should be externalized into its own repo.
  * @author Matthew W. Jackson
  */
@@ -48,10 +48,10 @@ var Wicket = function () {
   });
   this.$_headers = {};
 
-  this._patchHeader: headerObj => {
+  this._patchHeader = headerObj => {
 
   };
-  this._setHeaders: headerObj => {
+  this._setHeaders = headerObj => {
 
   };
 };

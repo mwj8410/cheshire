@@ -1,3 +1,5 @@
+/* global global, process, require */
+
 const express = require('express');
 const http = require('http');
 const path = require('path');
@@ -9,7 +11,7 @@ var routesDef = require('./route.config');
 var config = require('../config/production.config').api,
   router = express(),
   server = http.createServer(router),
-  staticContentPath = `${__dirname}${path.sep}hosted`; // Allows for MS and *nix hosting environemnts
+  staticContentPath = `${__dirname}${path.sep}hosted`; // Allows for MS and *nix hosting environments
 
 // Override production configuration with local configuration if available
 try {

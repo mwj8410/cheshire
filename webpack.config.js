@@ -44,11 +44,14 @@ module.exports = {
 
     // Build HTML
     new HtmlWebpackPlugin(Object.assign(
-      { filename: './editor.html', template: './ui/editor.ejs' }
+      { filename: './editor.html', template: './ui/editor.ejs' },
+      { filename: './login.html', template: './ui/login.ejs' }
     )),
 
     // Copy static assets over
     new CopyWebpackPlugin([
+      { from: 'node_modules/react/dist/react.min.js', to: 'lib/' },
+      { from: 'node_modules/react-dom/dist/react-dom.min.js', to: 'lib/' }
     ])
   ],
   sassLoader: {
